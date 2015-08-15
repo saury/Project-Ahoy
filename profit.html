@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta charset="UTF-8">
+    <title>我的理财</title>
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link rel="stylesheet" href="css/ahoy.css">
+</head>
+
+<body class="bg_gray">
+    <header class="profit_banner">
+        <section class="profit_banner_title">
+            <div>加油返利余额（元）<span>3000.00</span></div>
+        </section>
+        <section class="profit_banner_cell">
+            <div>已加油总金额<span>50000</span></div>
+        </section>
+        <section class="profit_banner_cell">
+            <div class="cell_with_border">已使用余额<span>50000</span></div>
+            <div class="cell_with_border">总加油返利<span>104173.42</span></div>
+        </section>
+    </header>
+    <div class="profit_sec">
+        <section class="profit_sec_list">
+            <div data-href="#"><i class="icon-finance"></i>返利明细</div>
+        </section>
+    </div>
+    <div class="cf">
+        <div class="ahoy_double_btn fll">
+            <a class="pure-button ahoy_main_btn" href="qr.html">领取返利</a>
+        </div>
+        <div class="ahoy_double_btn flr">
+            <a class="pure-button ahoy_main_btn" href="verifying.html">船舶信息</a>
+        </div>
+    </div>
+    <script src="js/zepto.min.js"></script>
+    <script>
+    // init the datas
+    $("*").click(function() {
+        var linkHref = $(this).attr("data-href");
+        if (linkHref) window.location.href = linkHref;
+    });
+    </script>
+</body>
+
+</html>

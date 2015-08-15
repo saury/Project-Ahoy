@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>认证信息</title>
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link rel="stylesheet" href="css/ahoy.css">
+</head>
+
+<body class="bg_gray">
+    <div class="ahoy_main">
+        <form class="pure-form pure-g">
+            <div class="pure-u-1-1 ahoy_main_doubleInput">
+                <div class="pure-u-1-1">
+                    <label>船名 :</label>
+                    <input type="text" maxlength="255">
+                </div>
+                <hr>
+                <div class="pure-u-1-1">
+                    <label>编号 :</label>
+                    <input type="text" maxlength="20">
+                </div>
+                <hr>
+                <div class="pure-u-1-1">
+                    <label>吨位 :</label>
+                    <input type="text" maxlength="20">
+                </div>
+                <hr>
+                <div class="pure-u-1-1">
+                    <label>主要航线 :</label>
+                    <input type="text" maxlength="255">
+                </div>
+                <hr>
+                <div class="pure-u-1-1">
+                    <label>船舶行驶证</label>
+                    <div class="flr"><span role="ship-id" class="flr"><img class="pure-img" src="img/icon-camera.jpg"></span></div>
+                </div>
+                <hr>
+                <div class="pure-u-1-1">
+                    <label>吨位证书</label>
+                    <div class="flr"><span role="ship-certification" class="flr"><img class="pure-img" src="img/icon-camera.jpg"></span></div>
+                </div>
+                <hr>
+                <div class="pure-u-1-1">
+                    <label>实船拍照</label>
+                    <div class="flr"><span role="ship-photo" class="flr"><img class="pure-img" src="img/icon-camera.jpg"></span></div>
+                </div>
+            </div>
+            <a class="pure-button ahoy_main_btn" href="#">立即认证</a>
+        </form>
+    </div>
+    <!-- 弹出框 -->
+    <div class="mask_layer">
+        <div class="mask_layer_bg"></div>
+        <div class="popup">
+            <div id="ship-id" class="popup_cnt">
+                <p>温馨提示：请将手机横向拍摄，并尽量使船舶行驶证对齐边缘。（推荐图片大小<4M）</p>
+                <!-- <div class="id_img"><img class="pure-img" src="#" ></div> -->
+                <a class="pure-button ahoy_main_btn" href="javascript:void(0);">确定</a>
+            </div>
+            <div id="ship-certification" class="popup_cnt">
+                <p>温馨提示：请将手机横向拍摄，并尽量使吨位证书对齐边缘。（推荐图片大小<4M）</p>
+                <!-- <div class="id_img"><img class="pure-img" src="#" ></div> -->
+                <a class="pure-button ahoy_main_btn" href="javascript:void(0);">确定</a>
+            </div>
+            <div id="ship-photo" class="popup_cnt">
+                <p>温馨提示：请将手机横向拍摄，并尽量拍下实船全貌。</p>
+                <!-- <div class="id_img"><img height="120" src="#" ></div> -->
+                <a class="pure-button ahoy_main_btn" href="javascript:void(0);">确定</a>
+            </div>
+        </div>
+    </div>
+    <script src="js/zepto.min.js"></script>
+    <script>
+    /*show/hide mask layer*/
+    $(".flr").click(function(){
+        if(!$(this).attr("role")){return false;}
+        var role_vlue=$(this).attr("role");
+        $(".mask_layer").show();
+        $(".popup_cnt").hide();
+        $("#"+role_vlue).show();
+        setTimeout(function(){$(".popup").addClass("active");},1);
+    });
+    $(".mask_layer_bg").click(function(){
+        $(".popup").removeClass("active");
+        setTimeout(function(){$(".mask_layer").hide();},400);
+    });
+    $(".popup_cnt .ahoy_main_btn").click(function(){
+        $(".popup").removeClass("active");
+        setTimeout(function(){$(".mask_layer").hide();},400);
+    });
+    </script>
+</body>
+
+</html>

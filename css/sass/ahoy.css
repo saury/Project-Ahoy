@@ -1,0 +1,83 @@
+body { -webkit-touch-callout: none; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; -webkit-text-size-adjust: none; -moz-text-size-adjust: none; text-size-adjust: none; -webkit-tap-highlight-color: transparent; -webkit-tap-highlight-color: transparent; font-family: normal 14px/20px "Helvetica Neue", "Roboto", "Segoe UI", sans-serif; word-wrap: break-word; text-decoration: none; -webkit-user-drag: none; text-rendering: optimizeLegibility; -ms-content-zooming: none; margin: 0; border: 0; padding: 0; position: absolute; top: 0; left: 0; right: 0; bottom: 0; -moz-user-select: -moz-none; -ms-user-select: none; -webkit-user-select: none; user-select: none; }
+
+input, select, textarea { -moz-user-select: auto; -ms-user-select: auto; -webkit-user-select: auto; user-select: auto; }
+
+a, a:visited, a:hover, a:active { text-decoration: none; }
+
+.cf { *zoom: 1; }
+.cf:before, .cf:after { content: " "; display: table; }
+.cf:after { clear: both; }
+
+.fll { float: left; }
+
+.flr { float: right; }
+
+.bg_gray { background: #ededed; }
+
+html, body { height: 100%; }
+
+.signin { background: #292c2b url('../img/signin_bg.jpg?1439639136') no-repeat top center; background-size: 100% auto; position: relative; width: 100%; max-width: 640px; min-height: 480px; max-height: 1000px; margin: 0 auto; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 2em 0; height: 100%; }
+.signin_logo { width: 40%; height: auto; margin: 0 auto 5em; }
+.signin_form { width: 68.5%; margin: 0 auto; text-align: left; }
+.signin_form_sec { heigth: 36px; line-height: 36px; -moz-border-radius: 18px; -webkit-border-radius: 18px; border-radius: 18px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 0 1em; background: rgba(255, 255, 255, 0.5); margin: 1.5em 0; color: #666; position: relative; }
+.signin_form_sec em { display: none; position: absolute; padding-left: 1.4em; color: #F9544E; width: 50%; top: 0; left: 0; text-align: left; }
+.signin_form_sec input { width: 100%; border: none; padding: 0 .5em; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; background: transparent; }
+.signin_form_sec input::-moz-placeholder { color: #fff; }
+.signin_form_sec input:-ms-input-placeholder { color: #fff; }
+.signin_form_sec input::-webkit-input-placeholder { color: #fff; text-indent: 0; }
+.signin_btn { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; -moz-border-radius: 18px; -webkit-border-radius: 18px; border-radius: 18px; margin: 0 auto 1em; height: 36px; line-height: 36px; font-size: 1.2rem; display: block; width: 100%; text-align: center; background: #17ab92; font-weight: bold; color: #fff; text-decoration: none; }
+.signin_btn:active { -moz-box-shadow: inset 0 0 3px #666; -webkit-box-shadow: inset 0 0 3px #666; box-shadow: inset 0 0 3px #666; }
+.signin_link { color: #fff; font-size: .9rem; text-decoration: underline; }
+
+/* sign up page */
+.ahoy_main { text-align: center; width: 100%; }
+.ahoy_main .flr { height: 36px; width: 24px; margin-right: 1em; }
+.ahoy_main .flr img { margin-top: 6px; }
+.ahoy_main_btn { background: #17ab92; border: 2px solid #17ab92; padding: 0; color: #fff; height: 36px; line-height: 32px; font-size: 1.2rem; display: block; width: 100%; -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; margin: 0 auto 12px; }
+.ahoy_main_btn_hollow { background: #fff; color: #17ab92; }
+.ahoy_main form { letter-spacing: normal; text-align: left; width: 88%; margin: 10px auto; }
+.ahoy_main_doubleInput { -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; background: #fff; width: 100%; margin: 1em 0 5em; font-size: .9em; color: #999; }
+.ahoy_main_doubleInput div { margin: 0 !important; position: relative; }
+.ahoy_main_doubleInput hr { height: 1px; border: none; border-top: 1px solid #e4e4e4; width: 98%; margin: 0 auto; }
+.ahoy_main_doubleInput label { display: inline-block; float: left; margin: 0; height: 36px; line-height: 36px; padding-left: 1em; }
+.ahoy_main_doubleInput input { width: 65%; border: none !important; box-shadow: none !important; margin: 0 !important; height: 36px; line-height: 36px; }
+.identity_btn { background: #17ab92; color: #fff; font-size: .8rem; position: absolute; top: .3em; right: 1em; -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; }
+
+/* mask layer */
+.mask_layer { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; }
+.mask_layer_bg { background: #000; opacity: .5; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+.popup { opacity: 0; width: 230px; margin: 30% auto; background: #fff; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0px 0px 5px #666; -webkit-box-shadow: 0px 0px 5px #666; box-shadow: 0px 0px 5px #666; -moz-transition: all 0.5s; -o-transition: all 0.5s; -webkit-transition: all 0.5s; transition: all 0.5s; position: relative; }
+.popup.active { margin-top: 40%; opacity: 1; -moz-transition: all 0.5s; -o-transition: all 0.5s; -webkit-transition: all 0.5s; transition: all 0.5s; }
+.popup_cnt { width: 230px; display: none; padding: 14px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.popup_cnt p { margin: 0 6px 20px; text-align: justify; color: #666; font-size: .9em; }
+.id_img { width: 84%; margin: 12px auto; text-align: center; }
+.popup_cnt .pure-button { font-size: .95em; margin: 0 auto; }
+
+/* qr page */
+.ahoy_qr h2 { color: #999; font-size: 1.2em; text-align: center; margin: 2em; }
+.ahoy_qr_img { width: 130px; margin: 0 auto; }
+.ahoy_qr p { color: #f51919; text-align: center; margin: 2em auto 4em; }
+
+/* unverified page */
+.error_info { color: #999; text-align: center; font-weight: bold; margin-top: 50%; margin-bottom: 15%; }
+
+/* profit page */
+.profit_banner { height: 230px; margin-bottom: 5%; }
+.profit_banner_title { padding: 20px 5%; height: 110px; background: #17ab92; color: #fff; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.profit_banner_title span { font-size: 2.65em; display: block; line-height: 65px; }
+.profit_banner_cell { color: #666; padding: 8px 5%; background: #fff; height: 60px; border-bottom: 1px solid #f4f4f4; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.profit_banner_cell div { width: 45%; display: inline-block; }
+.profit_banner_cell span { display: block; color: #333; line-height: 35px; }
+
+/* sections under main body */
+.profit_sec_list { text-align: left; background: #fff; margin: 0 auto 4em; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+.profit_sec_list div { border-bottom: 1px solid #ededed; color: #666; height: 50px; line-height: 50px; padding: 0px 5%; position: relative; background: url('../img/right_arrow.jpg?1438010328') no-repeat 95% center; background-size: auto 30%; }
+.profit_sec_list div i { height: 50px; width: 26px; background-repeat: no-repeat; background-position: 0 center; background-size: auto 40%; display: inline-block; vertical-align: top; }
+.icon-finance { background-image: url('../img/icon-finance.jpg?1438422794'); }
+
+.ahoy_double_btn { width: 50%; padding: 5%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+@media only screen and (orientation: landscape) { .popup { margin: 4% auto; }
+  .popup.active { margin-top: 8%; }
+  .error_info { margin-top: 20%; margin-bottom: 5%; } }
