@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link rel="stylesheet" href="css/work_order.css">
+    <link rel="stylesheet" href="css/wo_global.css">
+</head>
+
+<body>
+    <div id="menu">
+        <div class="pure-menu">
+            <a class="pure-menu-heading" href="/">logo</a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item menu-item-divided">
+                    <a href="#" class="pure-menu-link">link</a>
+                </li>
+                <li class="pure-menu-item menu-item-divided">
+                    <a href="#" class="pure-menu-link">link</a>
+                </li>
+                <li class="pure-menu-item menu-item-divided">
+                    <a href="#" class="pure-menu-link">link</a>
+                </li>
+                <li class="pure-menu-item menu-item-divided">
+                    <a href="#" class="pure-menu-link">link</a>
+                </li>
+                <li class="pure-menu-item menu-item-divided">
+                    <a href="#" class="pure-menu-link">link</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="order_table_main">
+        <table class="pure-table pure-table-bordered order_table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>类型</th>
+                    <th>内容</th>
+                    <th>状态</th>
+                    <th>申请人</th>
+                    <th>发起时间</th>
+                    <th>处理时间</th>
+                    <th>处理人</th>
+                    <th>操作／备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>112345</td>
+                    <td>退货</td>
+                    <td><a href="javascript:void(0);">申请退货审核处理</a></td>
+                    <td class="ft_green">处理中</td>
+                    <td>judy1833</td>
+                    <td>2015-07-15 13:11:11</td>
+                    <td class="ft_red">14:11</td>
+                    <td>even</td>
+                    <td><a href="#">退货</a><a href="#">驳回</a></td>
+                </tr>
+                <tr class="pure-table-odd">
+                    <td>112345</td>
+                    <td>退货</td>
+                    <td><a href="javascript:void(0);">申请退货审核处理</a></td>
+                    <td class="ft_green">处理中</td>
+                    <td>judy1833</td>
+                    <td>2015-07-15 13:11:11</td>
+                    <td class="ft_red">14:11</td>
+                    <td>even</td>
+                    <td><a href="#">退货</a><a href="#">驳回</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+          <ul class="pagination">
+            <!-- disabled为禁止点击 -->
+            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+            <!-- active为当前项 -->
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+          </ul>
+        </nav>
+    </div>
+    <script src="js/zepto.min.js"></script>
+    <script>
+    //init width of div order_table_main
+    window.resize=function(){
+        $(".order_table_main").width($(window).width() - $("#menu").width());
+    }
+    $(document).ready(function() {
+        $(".order_table_main").width($(window).width() - $("#menu").width());
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+$blue: #337ab7;
+@import "compass/typography/text/ellipsis";
+@import "compass/css3";
+@import "compass";
+@import "_mixins.scss";
+@import "_variables.scss";
+@import "_pagination.scss";
+body {
+    font: normal 14px/20px "Microsoft YaHei", Arial;
+}
+
+.cf {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+/* 处理中 */
+
+.order_table {
+    &_main {
+        float: right;
+        nav {
+            margin-left: 5%;
+        }
+    }
+    border-color: #333 !important;
+    & * {
+        border-color: #333 !important;
+    }
+    width: 90%;
+    margin: 20px auto;
+    thead {
+        background: $blue;
+        color: #fff;
+    }
+    th,
+    td {
+        text-align: center;
+        vertical-align: middle;
+    }
+    td {
+        a {
+            padding: 0 10px;
+        }
+    }
+    &_detail {
+        display: none;
+    }
+    &_inner {
+        height: 120px;
+        width: 100%;
+    }
+    &_inner2 {
+        width: 100%;
+        th {
+            background: #afd3fb;
+            color: #000;
+        }
+    }
+    &_div {
+        width: 70px;
+        height: 70px;
+        background: #ccc;
+        margin-right: 12px;
+        float: left;
+    }
+    &_ul {
+        list-style: none;
+        float: left;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        max-width: 70%;
+    }
+}
+
+.no_borderB {
+    border-bottom: 0 !important;
+    border-right: 1px solid #333 !important;
+}
+
+.no_pad {
+    padding: 0 !important;
+}
+
+.bg_blue {
+    background-color: #afd3fb !important;
+}
+
+.ft_green {
+    color: green;
+}
+
+.ft_tal {
+    text-align: left !important;
+}
+
+.ft_blue {
+    color: blue;
+}
+
+.ft_bold {
+    font-weight: bold;
+}
+
+.ft_red {
+    color: red;
+}
+
+.fll {
+    float: left;
+}
+
+.flr {
+    float: right;
+}
