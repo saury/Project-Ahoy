@@ -1,8 +1,11 @@
+@charset "UTF-8";
 body { -webkit-touch-callout: none; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; -webkit-text-size-adjust: none; -moz-text-size-adjust: none; text-size-adjust: none; -webkit-tap-highlight-color: transparent; -webkit-tap-highlight-color: transparent; font-family: normal 14px/20px "Microsoft YaHei", Arial, "Helvetica Neue", "Roboto", "Segoe UI", sans-serif; word-wrap: break-word; text-decoration: none; -webkit-user-drag: none; text-rendering: optimizeLegibility; -ms-content-zooming: none; margin: 0; border: 0; padding: 0; position: absolute; top: 0; left: 0; right: 0; bottom: 0; -moz-user-select: -moz-none; -ms-user-select: none; -webkit-user-select: none; user-select: none; }
 
 input, select, textarea { -moz-user-select: auto; -ms-user-select: auto; -webkit-user-select: auto; user-select: auto; }
 
 a, a:visited, a:hover, a:active { text-decoration: none; }
+
+a:visited, a:hover, a:active { color: #fff; }
 
 .cf { *zoom: 1; }
 .cf:before, .cf:after { content: " "; display: table; }
@@ -47,17 +50,18 @@ html, body { height: 100%; }
 .mask_layer { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; }
 .mask_layer_bg { background: #000; opacity: .5; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-.popup { opacity: 0; width: 230px; margin: 30% auto; background: #fff; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0px 0px 5px #666; -webkit-box-shadow: 0px 0px 5px #666; box-shadow: 0px 0px 5px #666; -moz-transition: all 0.5s; -o-transition: all 0.5s; -webkit-transition: all 0.5s; transition: all 0.5s; position: relative; }
-.popup.active { margin-top: 40%; opacity: 1; -moz-transition: all 0.5s; -o-transition: all 0.5s; -webkit-transition: all 0.5s; transition: all 0.5s; }
+.popup { opacity: 0; width: 230px; margin: 30% auto; background: #fff; -moz-transform: rotateZ(0); -ms-transform: rotateZ(0); -webkit-transform: rotateZ(0); transform: rotateZ(0); -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0px 0px 5px #666; -webkit-box-shadow: 0px 0px 5px #666; box-shadow: 0px 0px 5px #666; -moz-transition: all 0.5s; -o-transition: all 0.5s; -webkit-transition: all 0.5s; transition: all 0.5s; position: relative; }
+.popup.active { margin-top: 40%; opacity: 1; -moz-transform: rotateZ(0); -ms-transform: rotateZ(0); -webkit-transform: rotateZ(0); transform: rotateZ(0); -moz-transition: all 0.5s; -o-transition: all 0.5s; -webkit-transition: all 0.5s; transition: all 0.5s; }
 .popup_cnt { width: 230px; display: none; padding: 14px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 .popup_cnt p { margin: 0 6px 20px; text-align: justify; color: #666; font-size: .9em; }
 .id_img { width: 84%; margin: 12px auto; text-align: center; }
 .popup_cnt .pure-button { font-size: .95em; margin: 0 auto; }
 
 /* qr page */
-.ahoy_qr h2 { color: #999; font-size: 1.2em; text-align: center; margin: 2em; }
-.ahoy_qr_img { width: 130px; margin: 0 auto; }
-.ahoy_qr p { color: #f51919; text-align: center; margin: 2em auto 4em; }
+.ahoy_qr h2 { color: #666; font-size: 1.2em; text-align: center; margin: 2em; }
+.ahoy_qr_img { width: 88%; position: relative; margin: 0 auto; }
+.ahoy_qr_img_clip { width: 28%; height: auto; position: absolute; left: 59.75%; top: 25%; }
+.ahoy_qr p { color: #f51919; text-align: center; margin: 2em auto 4em; font-weight: bold; }
 
 /* unverified page */
 .error_info { color: #999; text-align: center; font-weight: bold; margin-top: 50%; margin-bottom: 15%; }
@@ -79,11 +83,38 @@ html, body { height: 100%; }
 .profit_sec_list div { border-bottom: 1px solid #ededed; color: #666; height: 50px; line-height: 50px; padding: 0px 5%; position: relative; background: url('../img/right_arrow.jpg?1439815305') no-repeat 95% center; background-size: auto 30%; }
 .profit_sec_list div i { height: 50px; width: 26px; background-repeat: no-repeat; background-position: 0 center; background-size: auto 40%; display: inline-block; vertical-align: top; }
 .icon-finance { background-image: url('../img/icon-finance.jpg?1439815305'); }
+.icon-star { height: 14px; width: 14px; background-repeat: no-repeat; background-position: 0 center; background-size: auto 100%; display: inline-block; vertical-align: top; background-image: url('../img/icon-star.jpg?1440311696'); }
 
 .ahoy_double_btn { width: 50%; padding: 0 0 0 2.5%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 .ahoy_double_btn:first-child { padding: 0 2.5% 0 0; }
 
 .ahoy_btn_ab { position: absolute; bottom: 10px; left: 6%; width: 88%; }
+
+.ahoy_li_nav { width: 100%; }
+.ahoy_li_nav ul { margin: 0; padding: 0; }
+.ahoy_li_nav li { height: 32px; line-height: 32px; list-style: none; float: left; width: 33.33333%; text-align: center; color: #999; font-size: .95rem; background: #f4f4f4; position: relative; }
+.ahoy_li_nav li select { width: 100%; height: 100%; opacity: 0; position: absolute; bottom: 0; left: 0; }
+.ahoy_li_nav li:after { position: absolute; right: 5%; top: 12px; content: " "; width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 8px solid #999; }
+
+.ahoy_list { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; position: absolute; width: 100%; padding-bottom: 44px; }
+.ahoy_list_item { position: relative; display: block; padding: 10px; padding-left: 110px; height: 100%; color: #999; border-bottom: 1px solid #ddd; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.ahoy_list_item:hover, .ahoy_list_item:active, .ahoy_list_item:visited { color: inherit; }
+.ahoy_list_item h2 { margin: 0; font-size: 0.975rem; color: #666; }
+.ahoy_list_cover { position: absolute; top: 10px; left: 10px; width: 90px; height: 70px; }
+.ahoy_list_cnt_fll { float: left; }
+.ahoy_list_cnt_fll p { color: #666; font-size: 0.75rem; padding: 5px 0 0; margin: 0; }
+.rate_stars { padding-top: 5px; }
+.ahoy_list_price:after { content: "元/吨"; }
+.ahoy_list_cnt_flr { text-align: right; }
+.ahoy_list_cnt_flr .badge { height: 18px; line-height: 18px; padding: 0 5px; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; display: inline-block; color: #fff; font-size: 0.75rem; }
+.ahoy_list_distance { font-size: 0.75rem; position: absolute; bottom: 10px; color: #666; right: 10px; }
+
+.bg_green { background: #78d4ab; }
+.bg_orange { background: #fbc55b; }
+
+.ft_pink { color: #f17d4e; }
+
+.ahoy-footer { position: fixed; width: 100%; bottom: 0; border-top-width: 1px; border-bottom-width: 0; background-position: top; height: 44px; line-height: 44px; background: #44a87a; color: #fff; text-align: center; font-size: 1.25rem; font-weight: bold; }
 
 @media only screen and (orientation: landscape) { .signin { min-height: 540px; }
   .popup { margin: 4% auto; }

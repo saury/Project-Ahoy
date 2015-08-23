@@ -64,6 +64,12 @@ a:active {
     text-decoration: none;
 }
 
+a:visited,
+a:hover,
+a:active {
+    color: #fff;
+}
+
 //clear fix
 .cf {
     *zoom: 1;
@@ -285,6 +291,7 @@ body {
     width: 230px;
     margin: 30% auto;
     background: #fff;
+    @include transform(rotateZ(0));
     @include border-radius(5px);
     @include box-shadow(0px 0px 5px #666);
     @include transition(all .5s);
@@ -292,6 +299,7 @@ body {
     &.active {
         margin-top: 40%;
         opacity: 1;
+        @include transform(rotateZ(0));
         @include transition(all .5s);
     }
     &_cnt {
@@ -322,19 +330,28 @@ body {
 
 .ahoy_qr {
     h2 {
-        color: #999;
+        color: #666;
         font-size: 1.2em;
         text-align: center;
         margin: 2em;
     }
     &_img {
-        width: 130px;
+        width: 88%;
+        position: relative;
         margin: 0 auto;
+        &_clip {
+            width: 28%;
+            height: auto;
+            position: absolute;
+            left: 59.75%;
+            top: 25%;
+        }
     }
     p {
         color: #f51919;
         text-align: center;
         margin: 2em auto 4em;
+        font-weight: bold;
     }
 }
 
@@ -351,7 +368,8 @@ body {
 
 
 /* upload */
-.ahoy_upload{
+
+.ahoy_upload {
     width: 60px;
     display: inline-block;
     height: 36px;
@@ -360,11 +378,12 @@ body {
     float: right;
     word-wrap: normal;
     padding-right: 12px;
-    img{
+    img {
         max-height: 100%;
-        width:auto;
+        width: auto;
     }
 }
+
 
 /* profit page */
 
@@ -431,25 +450,174 @@ body {
                 @at-root .icon-finance {
                     background-image: image-url("icon-finance.jpg");
                 }
+                @at-root .icon-star {
+                    height: 14px;
+                    width: 14px;
+                    background-repeat: no-repeat;
+                    background-position: 0 center;
+                    background-size: auto 100%;
+                    display: inline-block;
+                    vertical-align: top;
+                    background-image: image-url("icon-star.jpg");
+                }
             }
         }
     }
 }
 
-.ahoy_double_btn{
-    width:50%;
-    padding:0 0 0 2.5%;
+.ahoy_double_btn {
+    width: 50%;
+    padding: 0 0 0 2.5%;
     @include box-sizing(border-box);
-    &:first-child{
-        padding:0 2.5% 0 0;
+    &:first-child {
+        padding: 0 2.5% 0 0;
     }
 }
 
-.ahoy_btn_ab{
+.ahoy_btn_ab {
     position: absolute;
-    bottom:10px;
-    left:6%;
-    width:88%;
+    bottom: 10px;
+    left: 6%;
+    width: 88%;
+}
+
+//list page
+.ahoy_li_nav {
+    width: 100%;
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        height: 32px;
+        line-height: 32px;
+        list-style: none;
+        float: left;
+        width: 33.33333%;
+        text-align: center;
+        color: #999;
+        font-size: .95rem;
+        background: #f4f4f4;
+        position: relative;
+        select {
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        &:after {
+            position: absolute;
+            right: 5%;
+            top: 12px;
+            content: " ";
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid #999;
+        }
+    }
+}
+
+.ahoy_list {
+    @include box-sizing(border-box);
+    position: absolute;
+    width: 100%;
+    padding-bottom: 44px;
+    &_item {
+        position: relative;
+        display: block;
+        padding: 10px;
+        padding-left: 110px;
+        height: 100%;
+        color: #999;
+        border-bottom: 1px solid #ddd;
+        @include box-sizing(border-box);
+        &:hover,
+        &:active,
+        &:visited {
+            color: inherit;
+        }
+        h2 {
+            margin: 0;
+            font-size: 0.975rem;
+            color: #666;
+        }
+    }
+    &_cover {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 90px;
+        height: 70px;
+    }
+    &_cnt_fll {
+        float: left;
+        p {
+            color: #666;
+            font-size: 0.75rem;
+            padding: 5px 0 0;
+            margin: 0;
+        }
+    }
+    @at-root .rate_stars {
+        padding-top: 5px;
+    }
+    &_price {
+        &:after {
+            content: "元/吨";
+        }
+    }
+    &_cnt_flr {
+        text-align: right;
+        .badge {
+            height: 18px;
+            line-height: 18px;
+            padding: 0 5px;
+            @include border-radius(4px);
+            display: inline-block;
+            color: #fff;
+            font-size: 0.75rem;
+        }
+    }
+    &_distance {
+        font-size: 0.75rem;
+        position: absolute;
+        bottom: 10px;
+        color: #666;
+        right: 10px;
+    }
+}
+
+.bg {
+    &_green {
+        background: #78d4ab;
+    }
+    &_orange {
+        background: #fbc55b;
+    }
+}
+
+.ft_pink {
+    color: #f17d4e;
+}
+
+.ahoy-footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    border-top-width: 1px;
+    border-bottom-width: 0;
+    background-position: top;
+    height: 44px;
+    line-height: 44px;
+    background: #44a87a;
+    color: #fff;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
 }
 
 //media query for landscape styles
@@ -467,7 +635,7 @@ body {
         margin-top: 20%;
         margin-bottom: 5%;
     }
-    .ahoy_btn_ab{
+    .ahoy_btn_ab {
         position: relative;
     }
 }
