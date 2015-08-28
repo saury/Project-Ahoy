@@ -1,0 +1,4 @@
+<small ng-message="required">You left the field blank...</small>
+<small ng-message="minlength">Your field is too short</small>
+<small ng-message="maxlength">Your field is too long</small>
+<small ng-message="email">Your field has an invalid email address</small>

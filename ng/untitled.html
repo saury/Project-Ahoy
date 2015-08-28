@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple app</title>
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/foundation/4.3.2/css/foundation.min.css">
+    <script src="angular1.4.4.js"></script>
+    <script src="angular-messages.js"></script>
+</head>
+
+<body>
+    <div ng-controller="MyController">
+        <h1>Hello {{ clock.now | date:'medium' }}!</h1>￼
+        <button ng-click="add();">+1</button>
+        <div>{{ countClick }}</div>
+        <h1>{{ person }}</h1> and their name:
+        <h2>{{ person.name | lowercase | capitalize }}</h2> and their idol:
+        <h2>{{ person.idol }}</h2>
+        <!-- parse example -->
+        <input ng-model="expr" type="text" placeholder="Enter an expression" />
+        <h2>{{ parsedValue }}</h2>
+        <!-- interpolate -->
+        <input ng-model="to" type="email" placeholder="Recipient" />
+        <textarea ng-model="emailBody"></textarea>
+        <pre>{{ previewText }}</pre>
+        <!-- form -->
+        <form name="signup_form" novalidate ng-submit="signupForm()">
+            <label>Your name</label>
+            <input type="text" placeholder="Name" name="name" ng-model="signup.name" ng-minlength=3 ng-maxlength=20 required ng-focus/>
+            <div class="error" ng-if="signup_form.name.$dirty && signup_form.name.$focused" ng-messages="signup_form.name.$error" ng-messages-multiple>
+                <div ng-messages-include="templates/error-messages1"></div>
+            </div>
+            <label>Your email</label>
+            <input type="email" placeholder="Email" name="email" ng-model="signup.email" ng-minlength=3 ng-maxlength=20 required ng-focus/>
+            <div class="error" ng-if="signup_form.email.$dirty && signup_form.email.$focused" ng-messages="signup_form.email.$error" ng-messages-multiple>
+                <small ng-message="minlength">Your field is too short123</small>
+                <div ng-messages-include="templates/error-messages1"></div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <my-directive></my-directive>
+    </div>
+    <script type="text/javascript">
+    var app = angular.module('myApp', ['ngMessages']);
+    //config the express symbol from {{}} to ____
+    // app.config(['$interpolateProvider', function($interpolateProvider) {
+    //            $interpolateProvider.startSymbol('__');
+    //            $interpolateProvider.endSymbol('__');
+    //      }]).factory('myApp', ['$interpolate', function($interpolate) { //
+    //          return {
+    //            parse: function(text, context) {
+    //              var template = $interpolate(text);
+    //              return template(context);
+    // } };
+    // }]);
+    app.directive('myDirective', function() {￼
+        return {
+            restrict: 'E',
+            template: '<a href="http://google.com">Click me to go to Google</a>'￼
+        };
+    });
+    //filter function to capitalize the express
+    app.filter('capitalize', function() {
+        return function(input) {
+            return input[0].toUpperCase() + input.slice(1);
+        };
+    });
+    // app.directive('ensureUnique', ['$http', function($http) {
+    //     return {
+    //         require: 'ngModel',
+    //         link: function(scope, ele, attrs, c) {
+    //             scope.$watch(attrs.ngModel, function() {
+    //                 $http({
+    //                     method: 'POST',
+    //                     url: '/api/check/' + attrs.ensureUnique,
+    //                     data: {
+    //                         'field': attrs.ensureUnique
+    //                     }
+    //                 }).success(function(data, status, headers, cfg) {
+    //                     c.$setValidity('unique', data.isUnique);
+    //                 }).error(function(data, status, headers, cfg) {
+    //                     c.$setValidity('unique', false);
+    //                 });
+    //             });
+    //         }
+    //     };
+    // }]);
+    app.directive('ngFocus', [function() {
+        var FOCUS_CLASS = "ng-focused";
+        return {
+            restrict: 'A',
+            require: 'ngModel',
+            link: function(scope, element, attrs, ctrl) {
+                ctrl.$focused = false;
+                element.bind('focus', function(evt) {
+                    element.addClass(FOCUS_CLASS);
+                    scope.$apply(function() {
+                        ctrl.$focused = true;
+                    });
+                }).bind('blur', function(evt) {
+                    element.removeClass(FOCUS_CLASS);
+                    scope.$apply(function() {
+                        ctrl.$focused = false;
+                    });
+                });
+            }
+        };
+    }]);
+    app.controller("MyController", function($scope, $parse, $interpolate) {
+        $scope.clock = {
+            now: new Date()
+        };
+        var updateClock = function() {
+            $scope.clock.now = new Date()
+        };
+        // setInterval(function() {
+        //     $scope.$apply(updateClock);
+        // }, 1000);
+        updateClock();
+
+        $scope.countClick = 0;
+        $scope.add = function() {
+            $scope.countClick++;
+        }
+        $scope.person = {
+            name: 'are lREREWr',
+            idol: 'Allen Iverson'
+        };
+        //parse example
+        $scope.$watch('expr', function(newVal, oldVal, scope) {
+            if (newVal !== oldVal) {
+                // 用该表达式设置parseFun
+                var parseFun = $parse(newVal);
+                // 获取经过解析后表达式的值
+                $scope.parsedValue = parseFun(scope);
+            }
+        });
+        $scope.$watch('emailBody', function(body) {
+            if (body) {
+                var template = $interpolate(body);
+                $scope.previewText =
+                    template({
+                        to: $scope.to
+                    });
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>
